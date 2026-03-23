@@ -24,5 +24,9 @@ Out objective is to work on their data, this project will:
 <br/>*Fact Table Granularity*
 <BR/>The fact table is modeled at the invoice line level, where each record represents a product sold within a specific invoice.
 <br/>
+
+
 # Incremental Load Strategy
-<br/>
+<br/>*Late arriving data handling*
+<br/> The source system allows historical updates within the current and previous month, so the pipeline implements a sliding window incremental strategy that reloads the last two months of data. This approach ensures late updates are captured while avoiding full historical reloads.
+<br/> In mature pipelines this window can be combined with a watermark or control table to track the last processed timestamp.
