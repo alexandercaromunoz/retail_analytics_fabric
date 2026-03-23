@@ -16,4 +16,13 @@ Out objective is to work on their data, this project will:
 - Analize
 - Visualize
 
+# Modeling Decisions
 
+*Country and Customer*
+<br/>The Country attribute was modeled within the Customer dimension because it describes the customer entity rather than the sales transaction. Creating a separate Country dimension would introduce unnecessary snowflaking without analytical benefit.
+<br/>
+<br/>*Fact Table Granularity*
+<BR/>The fact table is modeled at the invoice line level, where each record represents a product sold within a specific invoice.
+<br/>
+# Incremental Load Strategy
+<br/>
